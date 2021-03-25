@@ -1,5 +1,6 @@
 from face_sdlr import face
 import cv2
+import os
 
 """
 !!! Python v3.6 에서 라이브러리 설치 가능 
@@ -95,6 +96,9 @@ Example 6 : Predict face
 Result :
 얼굴 예측 파일 생성 : save.jpg
 """
+if os.path.isfile('simple_face.clf') == False: 
+    exit()
+    cd
 image = face.load_image('test2.jpg')
 locations = face.face_locations(image)
 who = face.predict_faces('simple_face.clf', image, locations)
