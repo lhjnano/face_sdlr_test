@@ -90,18 +90,27 @@ Result :
 """
 face.train_face('simple_face.clf')
 
+
 """
-Example 6 : Predict face 
+Example 6 : Super Resolution
+
+Result :
+얼굴 확대 파일 생성 : sr.jpg
+"""
+if os.path.isfile('simple_face.clf') == False: 
+    exit()
+image = face.load_image('test2.jpg')
+
+srImage = face.super_resolution(image[20:120, 200:300])
+cv2.imwrite('sr.jpg', srImage)
+
+"""
+Example 7 : Predict face 
 
 Result :
 얼굴 예측 파일 생성 : save.jpg
 """
-if os.path.isfile('simple_face.clf') == False: 
-    exit()
-
-image = face.load_image('test2.jpg')
 locations = face.face_locations(image)
 who = face.predict_faces('simple_face.clf', image, locations)
 image = face.show_prediction(image, who)
 cv2.imwrite('save.jpg', image)
-    
