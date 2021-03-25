@@ -98,7 +98,7 @@ Result :
 """
 if os.path.isfile('simple_face.clf') == False: 
     exit()
-    cd
+
 image = face.load_image('test2.jpg')
 locations = face.face_locations(image)
 who = face.predict_faces('simple_face.clf', image, locations)
